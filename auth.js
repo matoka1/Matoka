@@ -22,3 +22,20 @@ document.getElementById("loginForm")?.addEventListener("submit", function (e) {
     alert("Invalid credentials. Try again.");
   }
 });
+// Sign Up
+document.getElementById("signupForm")?.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const username = document.getElementById("signupUsername").value;
+  const password = document.getElementById("signupPassword").value;
+  const message = document.getElementById("signupMessage");
+
+  localStorage.setItem("user", JSON.stringify({ username, password }));
+  
+  message.textContent = "Account created successfully!";
+  message.style.color = "green";
+
+  // Optional: redirect after a short delay
+  setTimeout(() => {
+    window.location.href = "index.html";
+  }, 1500);
+});
